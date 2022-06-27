@@ -1,0 +1,35 @@
+Algoritmo ejercicio_3
+	Definir nombre como cadena
+	Definir promedio, auxiliar_ordenar Como Real
+	Definir cantidad_alumnos,i,j, indice Como Entero
+	Escribir "Ingrese el número de alumnos"
+	Leer cantidad_alumnos
+	Dimension nombre[cantidad_alumnos]
+	Dimension promedio[cantidad_alumnos]
+	
+	Para i=0 Hasta cantidad_alumnos-1 Con Paso 1 Hacer
+		Escribir "Ingrese el nombre del alumno ", i+1
+		Leer nombre[i]
+		Escribir "Ingrese el promedio del alumno mencionado "
+		Leer promedio[i]
+	FinPara
+
+	Para j=cantidad_alumnos-1 Hasta 1 Con Paso -1  Hacer
+		indice=1
+		Para i=0 Hasta j  Hacer
+			Si promedio(i) >promedio(indice) Entonces
+				indice=i
+			FinSi
+			Si indice<>j Entonces
+				auxiliar_ordenar=promedio(indice)
+				promedio(indice)=promedio(j)
+				promedio(j)=auxiliar_ordenar
+			FinSi
+		FinPara
+	FinPara
+	Escribir "NOMBRE","      ", "PROMEDIO"
+	
+	Para i = 0 hasta cantidad_alumnos-1 Hacer			
+		Escribir nombre[i], "              ",promedio[i]
+	FinPara
+FinAlgoritmo
