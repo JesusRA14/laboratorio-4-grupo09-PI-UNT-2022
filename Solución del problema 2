@@ -1,0 +1,55 @@
+Algoritmo ejercicio_2
+	Definir cantidad, i, contador Como Entero
+	Definir x1,x2, promedio,media_geometrica, porcentaje_mediageometrica_promedio, igualdad_x1_x2 Como Real
+	Escribir "Ingrese la cantidad de valores que habrá en el conjunto de valores"
+	Leer cantidad
+	Dimension x1[cantidad], x2[cantidad]
+	Dimension promedio[cantidad], media_geometrica[cantidad], porcentaje_mediageometrica_promedio[cantidad],igualdad_x1_x2[cantidad]
+	
+	Escribir "Ingrese números positivos no nulos para el primer conjunto de valores"
+	Para i=0 Hasta cantidad-1 Con Paso 1 Hacer
+		Escribir "Ingrese el valor ", i+1
+		Leer x1[i]
+		Mientras x1[i]<=0 Hacer
+			Escribir "El número ingresado o no es positivo o es cero. Ingrese otro número"
+			Leer x1[i]
+		FinMientras
+	FinPara
+	Escribir "Ingrese números positivos no nulos para el segundo conjunto de valores"
+	Para i=0 Hasta cantidad-1 Con Paso 1 Hacer
+		Escribir "Ingrese el valor ", i+1
+		Leer x2[i]
+		Mientras x2[i]<=0 Hacer
+			Escribir "El número ingresado o no es positivo o es cero. Ingrese otro número"
+			Leer x2[i]
+		FinMientras
+	FinPara
+	
+	Para i=0 Hasta cantidad-1 Con Paso 1 Hacer
+		promedio[i]=(x1[i]+x2[i])/2
+	FinPara
+	
+	Para i=0 Hasta cantidad-1 Con Paso 1 Hacer
+		media_geometrica[i]=rc(x1[i]*x2[i])
+	FinPara
+	
+	Para i=0 Hasta cantidad-1 Con Paso 1 Hacer
+		porcentaje_mediageometrica_promedio[i]=100-(promedio[i]*100)/media_geometrica[i]
+	FinPara
+	//Promedio=MA , Media Geometrica=MG ,
+	//Porcentaje de veces que el promedio es menor que la media geométrica:Porcentaje de diferencia
+	Escribir " Num1", " Num2", "  MA", "   	MG", " Porcentaje de diferencia"
+	Para i=0 Hasta cantidad-1 Con paso 1 Hacer
+		Escribir "  ", x1[i], "    ",x2[i], "    ", promedio[i], "    ", media_geometrica[i], "          ", porcentaje_mediageometrica_promedio[i], "%"
+	FinPara
+	
+	contador=0
+	Para i=0 Hasta cantidad-1 Con Paso 1 Hacer
+		Si porcentaje_mediageometrica_promedio[i]==0 Entonces
+			contador=contador+i+1
+			Si contador==1 Entonces
+				Escribir "El primer par de valores de X1 y X2 donde el promedio es igual a la media geométrica es: ", x1[i],"  ", x2[i]
+			FinSi
+		FinSi
+	FinPara
+FinAlgoritmo
